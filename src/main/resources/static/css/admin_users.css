@@ -1,0 +1,46 @@
+/* Estilos para la tabla */
+body{
+    background-color: #232323;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+h1{
+    color: white;
+    text-align: center;
+}
+
+th, td {
+    color: white;
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+form{
+    display: flex;
+    justify-content: center;
+}
+
+th {
+    color: white;
+    background-color: #232323;
+}
+
+/* Estilos para el botón de eliminar */
+button {
+    text-align: center;
+    background-color: #dc3545; /* Color de fondo rojo */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #c82333; /* Color de fondo rojo más oscuro al pasar el mouse */
+}

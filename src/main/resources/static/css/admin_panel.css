@@ -1,0 +1,48 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #232323;
+}
+
+.admin-panel {
+    text-align: center;
+    margin-top: 15%;
+    background-color: #232323;
+}
+
+.admin-panel h1 {
+    color: white;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.change{
+    color: rgb(255, 255, 4);
+    font-weight: bolder;
+}
+
+.admin-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.admin-button {
+    width: 15em;
+    height: 2.5rem;
+    display: inline-block;
+    padding: 10px 20px;
+    padding-top: 25px;
+    margin: 0 10px;
+    background-color: #7e1efc;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.admin-button:hover {
+    background-color: #5700c9;
+}

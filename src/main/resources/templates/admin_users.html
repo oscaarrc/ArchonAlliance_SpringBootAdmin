@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/admin_users.css">
+    <title>Administrar Usuarios</title>
+</head>
+<body>
+<h1>Administrar Usuarios</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Acción</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <th:block th:each="player : ${players}">
+        <tr>
+            <td th:text="${player.id}"></td>
+            <td>
+                <form th:action="@{/admin/users/delete/{playerId}(playerId=${player.id})}" method="post">
+                    <button onclick="return confirm('¿Desea borrar este jugador?')" type="submit">Eliminar</button>
+                </form>
+            </td>
+        </tr>
+    </th:block>
+    </tbody>
+</table>
+</body>
+</html>
