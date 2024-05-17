@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
         // FUNCTION: SHOW ERROR MSG
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function(event) {
+            event.preventDefault();
             const params = new URLSearchParams(window.location.search); // get URL parameters
 
             // check if the parameter 'error' exists and its value is 'true'
@@ -265,7 +266,6 @@
     <div class="modal__window">
 
         <form class="auth-form" id="loginForm" action="/login" method="post">
-
             <label class="auth-form__label">
                 <span class="auth-form__placeholder">Nombre de usuario</span>
                 <input class="auth-form__input input-email" type="text" id="username" name="username" required autocomplete="off">

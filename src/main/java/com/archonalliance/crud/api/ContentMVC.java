@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class ContentMVC {
     @GetMapping("/")
-    public String index(){return "redirect:/login";}
+    public String index(){return "redirect:/admin";}
 
     @GetMapping("/login")
     public String login(){

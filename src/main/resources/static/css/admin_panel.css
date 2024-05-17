@@ -48,13 +48,13 @@ body {
 }
 
 
-.algnBtn{
+.alignBtn{
     margin-top: 5rem;
     display: flex;
     justify-content: center;
     align-content: center;
 }
-.algnBtn a {
+.btn-logout {
     background-color: #7e1efc;
     color: #fff;
     font-size: 20px;
@@ -64,6 +64,6 @@ body {
     padding: 10px 20px;
     cursor: pointer;
 }
-.algnBtn a{
+.btn-logout:hover{
     background-color: #5700c9;
 }
