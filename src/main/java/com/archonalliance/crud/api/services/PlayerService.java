@@ -22,11 +22,6 @@ public class PlayerService {
         return playerRepository.findAll();
     }
 
-    public Optional<Player> findById(String id) {
-        return playerRepository.findById(id);
-    }
-
-
     public void deletePlayerById(String playerId) {
         playerRepository.deletePlayerById(playerId);
     }

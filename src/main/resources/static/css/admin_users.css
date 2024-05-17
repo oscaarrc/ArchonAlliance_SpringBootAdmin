@@ -44,3 +44,24 @@ button {
 button:hover {
     background-color: #c82333; /* Color de fondo rojo más oscuro al pasar el mouse */
 }
+
+
+.algnBtn{
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.btn {
+    background-color: #7e1efc;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: #5700c9;
+}

@@ -27,7 +27,7 @@ public class PlayerController {
     @GetMapping("/admin/users")
     public String showUsers(Model model) {
         List<Player> players = playerService.getAllPlayers();
-        model.addAttribute("players", players); // Agrega la lista de jugadores al modelo
+        model.addAttribute("players", players); // Add the list of players to the model
         return "admin_users";
     }
 

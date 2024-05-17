@@ -21,7 +21,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
-                .csrf(AbstractHttpConfigurer::disable) //Permite POST si está disable
+                .csrf(AbstractHttpConfigurer::disable) //POST allowed if disabled
                 .authorizeHttpRequests(registry -> {
                     registry.requestMatchers("/login").permitAll();
                     registry.requestMatchers("/admin/**").hasRole("ADMIN");

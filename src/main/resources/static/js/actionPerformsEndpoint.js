@@ -1,11 +1,9 @@
-console.log("putero")
-
 function setAction(){
 
-    let playerId = document.getElementById('id').value; // Obtiene el valor del input playerId
-    let formAction = "/admin/users/delete/" + playerId; // Construye la URL con el playerId
+    let playerId = document.getElementById('id').value;
+    let formAction = "/admin/users/delete/" + playerId; // Builds the URL including the playerId
 
-    // Establece la acción del formulario con la URL construida
+    // Sets the action of the form with the constructed URL
     document.getElementById('deleteUserForm').setAttribute('action', formAction);
 
     console.log(formAction)

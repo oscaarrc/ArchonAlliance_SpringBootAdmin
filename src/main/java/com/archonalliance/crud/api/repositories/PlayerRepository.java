@@ -16,12 +16,6 @@ import java.util.Optional;
 @NonNullApi
 public interface PlayerRepository extends JpaRepository<Player, String> {
 
-    @Override
-    List<Player> findAll();
-
-    @Override
-    Optional<Player> findById(String id);
-
     @Modifying
     @Query("delete from Player p where p.id = :id")
     void deletePlayerById(@Param("id") String id);

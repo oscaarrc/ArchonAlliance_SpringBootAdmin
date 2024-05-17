@@ -50,6 +50,27 @@ button[type="submit"]:hover {
     background-color: #0056b3;
 }
 
+
+.algnBtn{
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.btn {
+    background-color: #7e1efc;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: #5700c9;
+}
+
 @media screen and (max-width: 768px) {
     .container {
         max-width: 90%;

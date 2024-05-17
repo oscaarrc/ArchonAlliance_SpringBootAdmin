@@ -46,3 +46,24 @@ body {
 .admin-button:hover {
     background-color: #5700c9;
 }
+
+
+.algnBtn{
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.algnBtn a {
+    background-color: #7e1efc;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.algnBtn a{
+    background-color: #5700c9;
+}

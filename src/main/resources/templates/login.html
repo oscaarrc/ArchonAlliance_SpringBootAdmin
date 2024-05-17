@@ -1,11 +1,30 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
+        // FUNCTION: SHOW ERROR MSG
+        document.addEventListener('DOMContentLoaded', function() {
+            const params = new URLSearchParams(window.location.search); // get URL parameters
 
-        // Desplazamiento texto encima del input
+            // check if the parameter 'error' exists and its value is 'true'
+            if (params.has('error') && params.get('error') === 'true') {
+                const errorMessage = document.createElement('p');
+                errorMessage.textContent = 'Credenciales incorrectas';
+                errorMessage.style.color = "red";
+                errorMessage.style.paddingBottom = "2em";
+                errorMessage.style.fontSize = "20px";
+                errorMessage.style.fontWeight = "bolder";
+                const messageContainer = document.getElementById('message-container');
+                if (messageContainer) {
+                    messageContainer.appendChild(errorMessage);
+                }
+            }
+        });
+
+
+        // FUNCTION: SCROLLING TEXT ON TOP OF INPUT
         window.onload = function() {
             (function() {
                 const inputText = document.querySelectorAll('.auth-form__input');
@@ -24,7 +43,7 @@
                 });
             })();
 
-            // Ocultar/Mostrar contraseña
+            // FUNCTION: HIDE/SHOW PASSWORD
             (function() {
                 const togglers = document.querySelectorAll('.password-toggler');
 
@@ -64,12 +83,7 @@
             color: #fff;
             font-family: Helvetica, Arial, sans-serif;
         }
-        .text-success {
-            color: #28a745;
-        }
-        .text-danger {
-            color: #dc3545;
-        }
+
         .modal__background {
             height: 100vh;
             display: -webkit-box;
@@ -78,6 +92,7 @@
             display: -ms-flexbox;
             display: -webkit-box;
             display: flex;
+            flex-direction: column;
             -webkit-box-pack: center;
             -moz-box-pack: center;
             -o-box-pack: center;
@@ -246,8 +261,8 @@
 </head>
 <body>
 <div class="modal__background">
+    <div id="message-container"></div>
     <div class="modal__window">
-        <h3 th:if="${param.error == true}" style="color: red;">Credenciales incorrectas</h3>
 
         <form class="auth-form" id="loginForm" action="/login" method="post">
 
@@ -270,7 +285,6 @@
             </label>
 
             <div class="auth-form__answer"></div>
-
             <input class="auth-form__submit" type="submit" value="Login">
 
         </form>

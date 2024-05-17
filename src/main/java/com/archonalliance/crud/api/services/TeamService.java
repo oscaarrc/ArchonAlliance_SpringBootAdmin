@@ -1,6 +1,5 @@
 package com.archonalliance.crud.api.services;
 
-import com.archonalliance.crud.api.entities.Team;
 import com.archonalliance.crud.api.repositories.TeamRepository;
 import lombok.ToString;
 import org.springframework.stereotype.Service;
@@ -16,10 +15,6 @@ public class TeamService {
 
     public void deleteTeamByPlayerId(String id){
         teamRepository.deleteTeamByPlayerUid(id);
-    }
-
-    public String getAllByIdPlayerId(String id){
-        return teamRepository.findAllByPlayerUid(id).toString();
     }
 
 
