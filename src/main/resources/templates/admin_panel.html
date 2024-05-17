@@ -5,20 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel de Control de Administrador</title>
     <link rel="stylesheet" href="/css/admin_panel.css">
+    <style>
+        html{
+            width: 100%;
+            overflow-x: hidden
+        }
+        .align-logout{
+            width: 100%;
+            height: 2rem;
+            display: flex;
+            justify-content: right;
+        }
+
+        .logout-link {
+            color: white;
+            padding-right: 2em;
+            padding-top: 2rem;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bolder;
+        }
+
+        .logout-link:hover {
+            transition: 1s;
+            transform: scale(1.2);
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <div class="admin-panel">
-        <h1>Panel de Control - <span class="change">ARCHON ALLIANCE</span></h1>
-        <div class="admin-buttons">
-            <a href="/admin/users" class="admin-button">Ver / Eliminar <span class="change">USUARIOS</span></a>
-            <a href="/admin/userById" class="admin-button">Eliminar por <span class="change">ID</span></a>
-        </div>
+<div class="align-logout">
+    <a href="/logout" class="logout-link">Cerrar sesión</a>
+</div>
 
-        <div class="alignBtn">
-            <a href="/logout" class="btn-logout">Logout</a>
-        </div>
+<div class="admin-panel">
+    <h1>Panel de Control - <span class="change">ARCHON ALLIANCE</span></h1>
+
+    <div class="admin-buttons">
+        <a href="/admin/users" class="admin-button">Ver / Eliminar <span class="change">USUARIOS</span></a>
+        <a href="/admin/userById" class="admin-button">Eliminar por <span class="change">ID</span></a>
     </div>
-
-
+</div>
 </body>
 </html>
