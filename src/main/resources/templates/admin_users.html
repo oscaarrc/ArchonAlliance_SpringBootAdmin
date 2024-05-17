@@ -12,6 +12,7 @@
     <thead>
     <tr>
         <th>ID</th>
+        <th>Username</th>
         <th>Acción</th>
 
     </tr>
@@ -20,6 +21,7 @@
     <th:block th:each="player : ${players}">
         <tr>
             <td th:text="${player.id}"></td>
+            <td th:text="${player.userName}"></td>
             <td>
                 <form th:action="@{/admin/users/delete/{playerId}(playerId=${player.id})}" method="post">
                     <button onclick="return confirm('¿Desea borrar este jugador?')" type="submit">Eliminar</button>
