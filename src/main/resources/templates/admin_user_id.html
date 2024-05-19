@@ -12,8 +12,11 @@
 <div class="container">
   <form id="deleteUserForm" method="post">
     <label for="id">ID de Usuario:</label>
-    <input type="text" id="id" name="playerId" required>
-    <button onclick="setAction()" type="submit">Eliminar</button>
+    <div class="deleteInput">
+      <input type="text" id="id" name="playerId" required>
+      <button onclick="setAction()" type="submit">Eliminar</button>
+    </div>
+
   </form>
 
   <div class="algnBtn">

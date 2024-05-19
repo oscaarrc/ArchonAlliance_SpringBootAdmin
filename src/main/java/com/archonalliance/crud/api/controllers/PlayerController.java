@@ -1,6 +1,7 @@
 package com.archonalliance.crud.api.controllers;
 
 import com.archonalliance.crud.api.entities.Player;
+import com.archonalliance.crud.api.exceptions.PlayerNotFoundException;
 import com.archonalliance.crud.api.services.PlayerService;
 import com.archonalliance.crud.api.services.TeamService;
 import jakarta.transaction.Transactional;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class PlayerController {
@@ -37,6 +39,19 @@ public class PlayerController {
         teamService.deleteTeamByPlayerId(playerId);
         playerService.deletePlayerById(playerId);
         return "redirect:/admin/users";
+    }
+
+    @PostMapping("/admin/userId/deletePlayer/{playerId}")
+    @Transactional
+    public String deleteUserFindingId(@PathVariable String playerId){
+        Optional<Player> player = playerService.findById(playerId);
+        if (player.isPresent()){
+            teamService.deleteTeamByPlayerId(playerId);
+            playerService.deletePlayerById(playerId);
+            return "redirect:/admin/users";
+        }
+        else
+            throw new PlayerNotFoundException();
     }
 
     @GetMapping("/admin/userById")

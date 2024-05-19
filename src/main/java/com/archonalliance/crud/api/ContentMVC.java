@@ -12,6 +12,13 @@ public class ContentMVC {
     public String login(){
         return "login";
     }
+    @GetMapping("/error")
+    public String errorPage() {
+        return "error";
+    }
+
+    @GetMapping("/admin/userId")
+    public String deleteByIdPage(){return "admin_user_id";}
 
     @GetMapping("/admin")
     public String showAdminPage() {

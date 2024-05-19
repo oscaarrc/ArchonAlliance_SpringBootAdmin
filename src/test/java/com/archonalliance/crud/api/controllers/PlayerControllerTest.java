@@ -1,6 +1,7 @@
 package com.archonalliance.crud.api.controllers;
 
 import com.archonalliance.crud.api.entities.Player;
+import com.archonalliance.crud.api.exceptions.PlayerNotFoundException;
 import com.archonalliance.crud.api.services.PlayerService;
 import com.archonalliance.crud.api.services.TeamService;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,8 +13,10 @@ import org.springframework.ui.Model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
 class PlayerControllerTest {
@@ -76,5 +79,38 @@ class PlayerControllerTest {
 
         // Assert
         assertEquals("admin_user_id", viewName);
+    }
+
+
+    @Test
+    void testDeleteUserFindingId_PlayerFound() {
+        // Arrange
+        String playerId = "123456789";
+        Player player = new Player(playerId, "archonAlliance", "Aaron", "33", "3", "aether.png", "Me gusta php");
+        when(playerService.findById(playerId)).thenReturn(Optional.of(player));
+
+        // Act
+        String viewName = playerController.deleteUserFindingId(playerId);
+
+        // Assert
+        assertEquals("redirect:/admin/users", viewName);
+        verify(playerService, times(1)).findById(playerId);
+        verify(teamService, times(1)).deleteTeamByPlayerId(playerId);
+        verify(playerService, times(1)).deletePlayerById(playerId);
+    }
+
+    @Test
+    void testDeleteUserFindingId_PlayerNotFound() {
+        // Arrange
+        String playerId = "1";
+        when(playerService.findById(playerId)).thenReturn(Optional.empty());
+
+        // Assert
+        assertThrows(PlayerNotFoundException.class, () -> {
+            playerController.deleteUserFindingId(playerId);
+        });
+        verify(playerService, times(1)).findById(playerId);
+        verify(teamService, never()).deleteTeamByPlayerId(anyString());
+        verify(playerService, never()).deletePlayerById(anyString());
     }
 }
